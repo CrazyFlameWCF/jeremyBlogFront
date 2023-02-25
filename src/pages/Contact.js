@@ -34,21 +34,22 @@ const Contact = (props) => {
 
   return (
     <>
-    <p> Contact Page </p>
-    <form className='flex flex-col p-5' onSubmit={submitHandler}>
-      <div>
-        <p>Email :</p>
-        <input type='email' name='email' onChange={changeHandler} className='border px-2 py-1 border-gray-300 w-full'/>
+    <form className='flex flex-col items-start p-5 w-full border-3 border-red-400' onSubmit={submitHandler}>
+      <div className="flex flex-col ">
+        <div>
+          <p>Email :</p>
+          <input type='email' name='email' onChange={changeHandler} className='border px-2 py-1 border-gray-300'/>
+        </div>
+        <div>
+          <p>Subject :</p>
+          <input type='text' name='subject' onChange={changeHandler} className='border px-2 py-1 border-gray'/>
+        </div>
+        <div>
+          <p>Messeage :</p>
+          <textarea name='message' onChange={changeHandler} className='border px-2 py-1 border-gray' />
+        </div>
+        <button type='submit' className='border px-2 py-1 font-bold hover:bg-red-800 hover:text-black rounded-md'>Submit</button>
       </div>
-      <div>
-        <p>Subject :</p>
-        <input type='text' name='subject' onChange={changeHandler} className='border px-2 py-1 border-gray w-full'/>
-      </div>
-      <div>
-        <p>Messeage :</p>
-        <textarea name='message' onChange={changeHandler} className='border px-2 py-1 border-gray w-full' />
-      </div>
-      <button type='submit' className='border px-2 py-1 bg-green-500'>Submit</button>
     </form>
     </>
   );

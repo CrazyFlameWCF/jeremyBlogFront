@@ -1,6 +1,12 @@
+import Footer from "../components/Footer";
+import AboutMe from "./AboutMe";
+
 const Landing = (props) => {
   return (
-    <p>Landing Page</p>
+    <>
+      <AboutMe />
+      <Footer />
+    </>
   );
 }
 export default Landing;

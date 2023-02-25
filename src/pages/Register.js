@@ -61,35 +61,30 @@ const Register = (props) => {
 
   return (
     <>
-      <p className='text-2xl'>Register page</p>
       <form onSubmit={registerButtonHandler} className='flex flex-col'>
         <label htmlFor='email'>
-          email
+          email :
         </label>
-        <input type='email' name='email' onChange={changeHandler} />
-        <label htmlFor='password'>
+        <input type='email' name='email' className='mb-2 w-2/3' onChange={changeHandler} />
+        {/* <label htmlFor='password'>
           password
         </label>
-        <input type='password' name='password' onChange={changeHandler}  />
-        <label htmlFor='username'>
-          username
+        <input type='password' name='password' onChange={changeHandler}  /> */}
+        <label htmlFor='username'  className='mb-1'>
+          username :
         </label>
-        <input type='text' name='username' onChange={changeHandler}  />
-        <label htmlFor='address'>
+        <input type='text' name='username' className='mb-2 w-2/3' onChange={changeHandler}  />
+        {/* <label htmlFor='address'>
           address
         </label>
         <input type='text' name='address' onChange={changeHandler}  />
         <label htmlFor='contact'>
           contact
         </label>
-        <input type='text' name='contact' onChange={changeHandler}  />
-        <button type='submit'>Register</button>
+        <input type='text' name='contact' onChange={changeHandler}  /> */}
+        <button type='submit' className='border px-2 py-1 w-1/2 font-bold hover:bg-red-800 hover:text-black rounded-md'>Submit</button>
       </form>
-      <p>{email}</p>
-      <p>{password}</p>
-      <p>{username}</p>
-      <p>{address}</p>
-      <p>{contact}</p>
+      
     </>
   );
 }
