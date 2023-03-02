@@ -12,9 +12,11 @@ import Landing from './pages/Landing';
 import AboutMe from './pages/AboutMe';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import BlogPost from './pages/blog/BlogPost';
 import Musician from './pages/Musician';
 import TO from './pages/TO';
 import BlogLanding from './pages/BlogLanding'
+
 
 const App = (props) => {
   return (
@@ -30,6 +32,7 @@ const App = (props) => {
           <Route path='/to' element={<TO />} />
           {/* <Route path='/register' element={<Register />} /> */}
           <Route path='/blog' element={<Blog />} />
+          <Route path='/blog/:id' element={<BlogPost />} />
           <Route path='/bloglanding' element={<BlogLanding />} />
         </Routes>
       </Router>

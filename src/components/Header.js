@@ -16,8 +16,8 @@ const Header = (props) => {
           <div className="w-1/2">
             <ul className="flex flex-row  items-end">
             <li className="mr-2 px-2 py-1 font-bold text-white hover:text-red-700"><a href='/' className='inline-flex items-center'>HOME</a></li>
-            <li className="mr-2 px-2 py-1 font-bold text-white hover:text-red-700"><a href='/TO' className='inline-flex items-center'>CrazyFlame</a></li>
-            <li className="mr-2 px-2 py-1 font-bold text-white hover:text-red-700"><a href='/musician' className='inline-flex items-center'>Jeremy</a></li>
+            {/* <li className="mr-2 px-2 py-1 font-bold text-white hover:text-red-700"><a href='/TO' className='inline-flex items-center'>CrazyFlame</a></li> */}
+            {/* <li className="mr-2 px-2 py-1 font-bold text-white hover:text-red-700"><a href='/musician' className='inline-flex items-center'>Jeremy</a></li> */}
             <li className="mr-2 px-2 py-1 font-bold text-white hover:text-red-700"><a href='/blog' className='inline-flex items-center'>Blog</a></li>
             <li className="mr-2 px-2 py-1 font-bold text-white hover:text-red-700"><a href='/contact' className='inline-flex items-center'>Contact</a></li>
             

@@ -3,7 +3,7 @@ import LiveMarkdown from "./LiveMarkdown";
 const BlogLanding = (props) => {
   return (
     <>
-      <p>Blog Landing</p>
+      <p>Blog Writing Landing</p>
       <LiveMarkdown />
     </>
   );
