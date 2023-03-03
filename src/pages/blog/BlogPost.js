@@ -3,6 +3,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { useState } from 'react';
 import axios from 'axios';
+import SearchBar from "./Search";
+
 
 const BlogPost = (props) => {
 
@@ -35,27 +37,49 @@ const BlogPost = (props) => {
     requestToApi(replySubmit)
   }
   
+  const tagClickHandler = (e, id) => {
+    e.preventDefault();
+    let foundTagId = postedBlog.tag.find(eachTag => eachTag._id === id)
+    console.log(foundTagId)
+  }
+  
   return (
     <>
-      <div className='flex flex-col p-3'>
-        <p>Title: {postedBlog.title}</p>
-        <p>Email: {postedBlog.email}</p>
-        {/* <p>Tags: {postedBlog.tag}</p> */}
+      <SearchBar />
+      <div className='flex flex-col p-4 bg-black text-white'>
+        <p className='pb-2 font-bold'>Title: {postedBlog.title}</p>
+        <p className='font-bold'>Email: {postedBlog.email}</p>
+        <div className="flex gap-4">
+          {postedBlog.tag.map((eachTag) => {
+            return <p key={eachTag._id} className='px-4 py-2 rounded-full bg-red-900 text-white text-xs' onClick={(e) => tagClickHandler(e, eachTag.tag)}>{eachTag.tag}</p>
+          })}
+        </div>
+        
       </div>
-      <div className='w-2/3 m-4 p-4 border-2 border-black bg-white'>
-        <ReactMarkdown className='p-8 prose prose-indigo' remarkPlugins={[remarkGfm]}>
-        {postedBlog.markdown}
-        </ReactMarkdown>
+      <div className='bg-black'>
+        <div className='m-4 p-4 border-2 border-gray-400 rounded-md bg-white'>
+          <ReactMarkdown className='prose prose-indigo' remarkPlugins={[remarkGfm]}>
+          {postedBlog.markdown}
+          </ReactMarkdown>
+        </div>
+        
+        <div className='pl-4'>
+          <button className='bg-gray-400 border-2 border-gray-400 rounded-md w-24 p-1'><a href='./'>BACK</a></button>
+        </div>
       </div>
+      
       <div>
+        <div className='p-4 font-bold border-t-2 border-b-2 border-gray-400 bg-black text-white'>
+          <p>Comment: </p>
+        </div>
         {location.state.comments.length > 0 &&
         location.state.comments.map((comment) => {
         return <div key={comment._id}>
-          <div className='w-2/3 m-4 p-4 border-2 border-black bg-white'>
-            <div>
-              {comment.email}
+          <div className='w-full p-4 bg-black text-white'>
+            <div className='flex flex-row font-bold'>
+              <p className='pr-2'>User:</p>{comment.email}
             </div>
-            <div>
+            <div className='border-2 rounded-md p-2 border-gray-400 bg-black text-white'>
               {comment.message}
             </div>
           </div>
@@ -65,16 +89,21 @@ const BlogPost = (props) => {
       </div>
 
       <form onSubmit={submitHandler}>
-        <div className='p-12 bg-gray'>
-          <div>
+        <div>
+          <div className='p-4 border-b-2 font-bold border-gray-400 bg-black text-white'>
+            <p>Have something to say ? Leave a comment !</p>
+          </div>
+          <div className='p-4 font-bold border-gray-400 bg-black text-white'>
             <p>Email :</p>
-            <input type='email' name='email' onChange={changeHandler} className='border px-2 py-1 border-gray-300'/>
+            <input type='email' name='email' onChange={changeHandler} className='border px-2 py-1 border-gray-300 rounded-md text-black'/>
           </div>
-          <div>
+          <div className='p-4 font-bold border-gray-400 bg-black text-white'>
             <p>Messeage :</p>
-            <textarea type='text' name='message' onChange={changeHandler} className='border px-2 py-1 border-gray' />
+            <textarea type='text' name='message' onChange={changeHandler} className='border px-2 py-1 border-gray text-black rounded-md' />
           </div>
-          <button type='submit' className='border px-2 py-1 font-bold hover:bg-gray-500 rounded-md'>Submit</button>
+          <div className='p-4 border-gray-400 bg-black text-white'>
+            <button type='submit' className='border px-2 py-1 font-bold bg-gray-500 rounded-md hover:bg-white'>Submit</button>
+          </div>
         </div>
       </form>
     </>

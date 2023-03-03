@@ -34,15 +34,16 @@ const AboutMe = (props) => {
         </div>
       </div>
 
-      <div className='flex flex-row'>
-        <div className="w-1/2 p-4">
+      <div className='flex flex-row w-full bg-black justify-center items-center'>
+        <div className="pl-4 bg-black font-bold text-white">
           Contact Me
-          <Contact /> 
+          <Contact/> 
         </div>
-        <div className="w-1/2 p-4">
+        
+        {/* <div className="w-1/2 p-4 bg-black font-bold text-white">
           Stay in touch
           <Register />
-        </div>
+        </div> */}
       </div>
       </>
   );

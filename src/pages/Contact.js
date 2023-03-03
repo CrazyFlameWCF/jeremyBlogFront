@@ -38,15 +38,15 @@ const Contact = (props) => {
       <div className="flex flex-col ">
         <div>
           <p>Email :</p>
-          <input type='email' name='email' onChange={changeHandler} className='border px-2 py-1 border-gray-300'/>
+          <input type='email' name='email' onChange={changeHandler} className='border px-2 py-1 border-gray-300 text-black' />
         </div>
         <div>
           <p>Subject :</p>
-          <input type='text' name='subject' onChange={changeHandler} className='border px-2 py-1 border-gray'/>
+          <input type='text' name='subject' onChange={changeHandler} className='border px-2 py-1 border-gray text-black'/>
         </div>
         <div>
           <p>Messeage :</p>
-          <textarea name='message' onChange={changeHandler} className='border px-2 py-1 border-gray' />
+          <textarea name='message' onChange={changeHandler} className='border px-2 py-1 border-gray text-black' />
         </div>
         <button type='submit' className='border px-2 py-1 font-bold hover:bg-red-800 hover:text-black rounded-md'>Submit</button>
       </div>

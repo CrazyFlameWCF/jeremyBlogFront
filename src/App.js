@@ -11,7 +11,7 @@ import Login from './pages/Login';
 import Landing from './pages/Landing';
 import AboutMe from './pages/AboutMe';
 import Contact from './pages/Contact';
-import Blog from './pages/Blog';
+import Blog from './pages/blog/Blog';
 import BlogPost from './pages/blog/BlogPost';
 import Musician from './pages/Musician';
 import TO from './pages/TO';
