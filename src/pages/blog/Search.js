@@ -33,11 +33,8 @@ const SearchBar = ({allBlogs, setSearchedPost, callUseEffect, setCallUseEffect})
   return (
     <>
     <div className='flex flex-row w-1/8 h-14 justify-end items-end border-2 border-gray-500 rounded-md'>
-      <div>
+      <div className='text-black'>
         <input className='p-2 border-none' type='text' placeholder="Search.." value={searchInput} onChange={changeHandler} />
-      </div>
-      <div>
-        {/* <GoSearch onClick={buttonHandler}></GoSearch> */}
       </div>
     </div>
     </>

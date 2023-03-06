@@ -11,6 +11,8 @@ module.exports = {
         'jeremyPro' : "url('./pages/images/jeremyProfile.png')",
         'jeremyPer' : "url('./pages/images/jeremyPerform.png')",
         'jeremyTO' : "url('./pages/images/jeremyTO.png')",
+        'jeremyCom' : "url('./pages/images/jeremyCommentate.jpg')",
+        'jeremyPlays' : "url('./pages/images/jeremyPlays.jpg')",
       }
     },
   },

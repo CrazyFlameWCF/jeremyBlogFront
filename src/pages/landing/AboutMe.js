@@ -1,5 +1,4 @@
 import Contact from "./Contact";
-import Register from "./Register";
 
 const AboutMe = (props) => {
   return (
@@ -33,18 +32,21 @@ const AboutMe = (props) => {
           <p className="text-white underline hover:font-extrabold"><a href='/TO'>Find Out More</a></p>
         </div>
       </div>
+      
+      <div className="flex flex-row bg-black text-white w-full h-72 p-4 bg-center bg-cover border-white border-t-2 border-b-2">
+        <div className="w-1/2 text-white ">
+          <p className='font-bold'>On the other side, I am in the last year of Grant MacEwan University, currently being an apprentice web-development programmer. 
+          </p>      
+          <p className="text-white underline hover:font-extrabold"><a href='/coding'>Find Out More</a></p>
+        </div>
+      </div>
 
-      <div className='flex flex-row w-full bg-black justify-center items-center'>
+      {/* <div className='flex flex-row w-full bg-black justify-center items-center'>
         <div className="pl-4 bg-black font-bold text-white">
           Contact Me
           <Contact/> 
         </div>
-        
-        {/* <div className="w-1/2 p-4 bg-black font-bold text-white">
-          Stay in touch
-          <Register />
-        </div> */}
-      </div>
+      </div> */}
       </>
   );
 }

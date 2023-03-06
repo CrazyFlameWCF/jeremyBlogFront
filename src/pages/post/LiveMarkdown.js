@@ -3,8 +3,11 @@ import { useState } from 'react'
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const LiveMarkdown = (props) => {
+const LiveMarkdown = ({callBlog, setCallBlog}) => {
+
+  const navigate = useNavigate();
 
   const [ articleSubmit, setArticleSubmit ] = useState({
     title: '',
@@ -32,6 +35,10 @@ const LiveMarkdown = (props) => {
     const requestToApi = async (data) => {
       let request = await axios.post(`${process.env.REACT_APP_SERVER_URL}/blog/register`, data);
       console.log(request)
+      if(request.data.success) {
+        navigate('/blog/list')
+        setCallBlog(!callBlog)
+      }
     }
     requestToApi(submitData)
 
@@ -86,16 +93,16 @@ const LiveMarkdown = (props) => {
             <label htmlFor='title'>
               Title :
             </label>
-            <input type='title' name='title' className='border-2 px-2 py-1 border-gray-300 rounded-ms' value={title} onChange={changeHandler} />
+            <input type='title' name='title' className='border-2 px-2 py-1 border-gray-300 rounded-ms text-black' value={title} onChange={changeHandler} />
             <label htmlFor='email'>
               E-mail :
             </label>
-            <input type='email' name='email' className='border-2 px-2 py-1 border-gray-300 rounded-ms' value={email} onChange={changeHandler} />
+            <input type='email' name='email' className='border-2 px-2 py-1 border-gray-300 rounded-ms text-black' value={email} onChange={changeHandler} />
             <div className='pt-2'>
               <label className='pr-2' htmlFor='tag'>
                 Tags :
               </label>
-              <input type='tag' name='tag' className='border-2 px-2 py-1 border-gray-300 rounded-ms' value={tag} onChange={tagChangeHangler} />
+              <input type='tag' name='tag' className='border-2 px-2 py-1 border-gray-300 rounded-ms text-black' value={tag} onChange={tagChangeHangler} />
               <button type='submit' className='border px-2 py-1 font-bold bg-gray-300 hover:bg-gray-700' onClick={(e) => tagSubmitHandler (e, typedTag)}>add</button>
             </div>
           </div>
@@ -109,12 +116,11 @@ const LiveMarkdown = (props) => {
           
           <div className='pt-4'>
             <p>Description : </p>
-            <textarea className="w-full h-72 border-2 border-gray-300" name='markdown' value={markdown} onChange={changeHandler}>
+            <textarea className="w-full h-72 border-2 border-gray-300 text-black" name='markdown' value={markdown} onChange={changeHandler}>
             </textarea>
           </div>
           <div className='flex items-center justify-center'>
-            <button type='submit' className='border px-6 py-1 font-bold bg-gray-300 hover:bg-red-800 hover:text-black rounded-md' onClick={(submitHandler)}>
-            <a href="/">Submit</a>
+            <button type='submit' className='border px-6 py-1 font-bold bg-gray-300 hover:bg-red-800 hover:text-black rounded-md' onClick={(submitHandler)}>Submit
             </button>
           </div>
 
@@ -123,8 +129,8 @@ const LiveMarkdown = (props) => {
 
       <div className='w-1/2 h-72 border-1'>
         <p>Preview</p>
-        <p>{title}</p>
-        <p>{email}</p>
+        <p>Title: {title}</p>
+        <p>Email: {email}</p>
         <div className='w-full p-4 bg-white'>
           <ReactMarkdown className='p-8 prose prose-indigo' remarkPlugins={[remarkGfm]}>
             {markdown}
