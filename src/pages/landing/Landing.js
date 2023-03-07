@@ -1,6 +1,7 @@
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { Outlet, useLocation } from "react-router-dom";
+import { motion } from 'framer-motion';
 
 const Landing = (props) => {
 
@@ -21,16 +22,23 @@ const Landing = (props) => {
   }
 
   return (
-    <section className={backgroundChanger(location.pathname)}>
-      {location.pathname === '/' &&
-      <div className='w-full h-full flex justify-center items-center'>
-        <p className='font-Berkshire text-white/70 text-5xl md:text-6xl lg:text-8xl'>Jeremy Park</p>
-      </div>
-      }
+    <>
       <Header />
-      <Outlet />
-      <Footer />
-    </section>
+      <motion.section 
+        className={backgroundChanger(location.pathname)}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1,}}
+        transition={{ duration: 0.5 }}
+      >
+        {location.pathname === '/' &&
+        <div className='w-full h-full flex justify-center items-center'>
+          <p className='font-Berkshire text-white/70 text-5xl md:text-6xl lg:text-8xl'>Jeremy Park</p>
+        </div>
+        }
+        <Outlet />
+        <Footer />
+      </motion.section>
+    </>
   );
 }
 export default Landing;

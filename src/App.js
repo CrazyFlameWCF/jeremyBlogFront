@@ -25,7 +25,9 @@ const App = (props) => {
   const [ callBlog, setCallBlog ] = useState(false);
 
   return (
-    <div className='w-screen h-screen font-Roboto'>
+    <div 
+      className='w-screen h-screen font-Roboto'
+    >
       <Router>
         <Routes>
           <Route path='/' element={<Landing />} >

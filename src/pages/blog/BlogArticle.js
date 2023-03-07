@@ -113,7 +113,7 @@ const BlogArticle = (props) => {
 
           {/* MD */}
           <div className="w-full">
-            <ReactMarkdown className='p-4 w-full prose prose-indigo bg-white p-2 rounded-md' remarkPlugins={[remarkGfm]}>
+            <ReactMarkdown className='p-4 w-full prose prose-indigo bg-white rounded-md' remarkPlugins={[remarkGfm]}>
               {article.markdown}
             </ReactMarkdown>
           </div>
