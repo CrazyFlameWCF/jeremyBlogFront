@@ -1,7 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -109,7 +107,7 @@ const LiveMarkdown = ({callBlog, setCallBlog}) => {
           <div className='flex'>
             {tags.length > 0 &&
               tags.map((tag) => {
-                return <div key={tag._id} className='mr-2 flex'>{tag.tag}<button onClick={(e) => deleteTag(e, tag)}>X</button></div>
+                return <div key={tag._id} className='mr-2 flex bg-white text-black rounded-md w-24 justify-center p-1'>{tag.tag}<button onClick={(e) => deleteTag(e, tag)}>X</button></div>
               })
             }
           </div>
@@ -125,18 +123,7 @@ const LiveMarkdown = ({callBlog, setCallBlog}) => {
           </div>
 
         </div>
-      
-
-      <div className='w-1/2 h-72 border-1'>
-        <p>Preview</p>
-        <p>Title: {title}</p>
-        <p>Email: {email}</p>
-        <div className='w-full p-4 bg-white'>
-          <ReactMarkdown className='p-8 prose prose-indigo' remarkPlugins={[remarkGfm]}>
-            {markdown}
-          </ReactMarkdown>
-        </div>
-      </div>
+    
 
     </div>
     </>

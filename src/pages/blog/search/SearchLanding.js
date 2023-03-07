@@ -47,7 +47,7 @@ const SearchLanding = (props) => {
 
   return (
     <section>
-      {foundPost.length > 0 ? <SearchList foundPost={foundPost} /> : <p>no found data</p>}
+      {foundPost.length > 0 ? <SearchList foundPost={foundPost} /> : <SearchNotFound />}
     </section>
   );
 }

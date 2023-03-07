@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import axios from 'axios';
-import BlogList from './BlogList';
 import BlogHeader from './BlogHeader';
-import BlogAllList from './BlogAllList';
+
 
 const BlogLanding = ({callBlog, setCallBlog}) => {
-  const [ foundTag, setFoundTag ] = useState('');
-  const [ tagList, setTagList ] = useState(false);
   const [ allBlogs, setAllBlogs ] = useState([]);
 
   const blogData = {
@@ -34,13 +31,13 @@ const BlogLanding = ({callBlog, setCallBlog}) => {
   )
 
   return (
-    <section className='bg-black text-white h-full'>
-      {allBlogs &&<>
-        <BlogHeader />
-        <Outlet context={blogData} />
-      </>
-      }
-    </section>
+    <section className="w-full h-full flex flex-col items-start p-8">
+    <div className="px-8 py-8 bg-white/40 w-11/12 rounded-xl overflow-auto">
+      {allBlogs && <BlogHeader />}
+      {allBlogs && <Outlet context={blogData} />}
+    </div>
+  </section>
+
 
   );
 }

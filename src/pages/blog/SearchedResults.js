@@ -5,32 +5,34 @@ const dateFormatter = (string) => {
   return formattedDate
 }
 
+const blogClickHandler = (e, id) => {
+  console.log(id);
+}
+
 const SearchedResults = ({searchedPost}) => {
   return (
-    <>
-      {searchedPost &&
-        <div>
-          {searchedPost.map((post) => {
-            return <div key={post._id} className='w-full bg-slate-200 mb-2 px-8 py-4 flex flex-col gap-2'>
-                <p className="text-2xl font-bold">{post.title}</p>
-              <div className='flex gap-4'>
-                <p className='text-xs text-gray-600'>{post.email}</p>
-                <p className="text-xs text-gray-600">{dateFormatter(post.createdAt)}</p>
-              </div>
-              {post.tag.length > 0 &&
-              <div className="flex gap-2">
-                {post.tag.map((tag) => {
-                  return <div key={tag._id} className='bg-blue-700 text-xs text-white px-4 py-1 rounded-full'>
-                    <p>{tag.tag}</p>
-                  </div>
-                })}
-              </div>
-              }
+    <div>
+      {searchedPost && <div>
+        {searchedPost.map((post) => {
+          return <div 
+            className="border-2 rounded-md px-2 py-2 hover:border-yellow-600/40 hover:border-2 hover:bg-white/30 mb-2" key={post._id} onClick={(e) => blogClickHandler(e, post._id)}>
+            <p className='text-xl font-bold text-white truncate'>{post.title}</p>
+            <div className="text-xs flex flex-row gap-2 text-white border-b border-white mb-2 pb-1">
+              <p className="truncate">{dateFormatter(post.createdAt)}</p>
+              <p className="truncate">{post.email}</p>
             </div>
-          })}
+            <div className="flex gap-2">
+            {post.tag.length > 0 &&
+              post.tag.map(obj => {
+                return <p className="px-4 py-1 rounded-full bg-yellow-600/40 text-white text-xs">{obj.tag}</p>
+              })
+            }
+            </div>
+          </div>
+        })}
         </div>
       }
-    </>
+    </div>
   );
 }
 export default SearchedResults;

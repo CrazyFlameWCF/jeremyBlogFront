@@ -1,18 +1,12 @@
 const TO = (props) => {
   return (
-    <>
-      <p className='text-white'>CrazyFlame</p>
-      <div className="flex justify-items-center w-full p-4 bg-jeremyCom bg-top bg-cover h-72 hover:bg-opacity-50">
-        <div className="w-1/2">
-          <p className='font-bold'>As a member of WestCoast Fighters, I do organize & Commentate for a tournament on various fighting games.</p>
-        </div>
+    <section className="w-full h-full flex items-center px-8">
+      <div className="px-8 py-12 bg-white/40 w-2/3 rounded-xl">
+        <p className="text-3xl md:text-4xl font-light text-white font-Berkshire border-b border-white mb-4">Tournament commentator</p>
+        <p className='font-helvetica font-light leading-6 text-lg mb-2'>As a member of WestCoast Fighters, I do organize & Commentate for a tournament on various fighting games.</p>
+        <p className='font-helvetica font-light leading-6 text-lg mb-2'>As passionate gamer, I also play Street Fighter V competetively under gamerTag, CRAZYFLAME.</p>
       </div>
-      <div className="flex justify-items-center w-full p-4 bg-jeremyPlays bg-top bg-cover h-72 hover:bg-opacity-50">
-        <div className="w-1/2 text-white">
-          <p className='font-bold'>As passionate gamer, I also play Street Fighter V competetively under gamerTag, CRAZYFLAME.</p>
-        </div>
-      </div>
-    </>
+    </section>
   );
 }
 export default TO;
